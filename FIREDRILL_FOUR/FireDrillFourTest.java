@@ -51,6 +51,48 @@ public class FireDrillFourTest{
         assertArrayEquals(actual , expected);
     } 
 
+    @Test
+    public void testThatAscendingArrayreturnsArrayInAscendingOrder(){
+        
+        int[] array = {5, 2, 1, 6, 7, 9, 9};
+        int[] expected = {1, 2, 5, 6, 7, 9, 9};
+
+        int[] actual = FireDrillFour.ascendArray(array);
+
+        assertArrayEquals(expected ,actual);
+    }
+
+    @Test
+    public void testThatdescendingArrayreturnsArrayIndescendingOrder(){
+        
+        int[] array = {5, 2, 1, 6, 7, 9, 9};
+        int[] expected = {9, 9, 7, 6, 5, 2, 1};
+
+        int[] actual = FireDrillFour.descendArray(array);
+
+        assertArrayEquals(expected ,actual);
+    }
+
+    @Test
+    public void testThatLinearSearchLooksForElementInAnArrayWhereItWouldBeFoundreturnIndex(){
+
+        int[] array = {5, 2, 1, 6, 7, 9, 9};
+        int key = 1;
+        int actual = FireDrillFour.linearSearch(array, key);
+        int expected = 2;
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testThatLinearSearchLooksForElementInAnArrayWhereItWouldNotBeFoundAndReturnMinus1(){
+
+        int[] array = {5, 2, 6, 7, 9, 9};
+        int key = 1;
+        int actual = FireDrillFour.linearSearch(array, key);
+        int expected = -1;
+        assertEquals(expected, actual);
+    }
+
 
 
 
