@@ -10,7 +10,7 @@
 
 6. Write a method that takes an array and returns a new array sorted in ascending order.
 
-7. Modify Task 6 to sort the array in descending order.
+7. Modify Task 6 to sort the array in descending order.  
 
 8. Write a method that takes a sorted array and a target value, and returns the index of the target using linear search. Return -1 if not found.
 

@@ -93,12 +93,49 @@ public class FireDrillFourTest{
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void testThatBinarySearchMethoReturnsTheIndexOftheKeyIfFound(){
+
+        int[] array = {1, 2, 4, 5, 6, 7, 9};
+        int key = 9;
+        int actual = FireDrillFour.binarySearch(array, key);
+        int expected = 6;
+        assertEquals(expected, actual);
+    }
+    
+
+    @Test
+    public void testThatBinarySearchMethoReturnsMinusWhenTheKeyIsNotAvailableInTheAray(){
+
+        int[] array = {1, 2, 4, 5, 6, 7};
+        int key = 9;
+        int actual = FireDrillFour.binarySearch(array, key);
+        int expected = -1;
+        assertEquals(expected, actual);
+
+    }
 
 
+    @Test
+    public void testThatMergeArrayFunctionReturnANewArrayContainingElementsInArrayOneAndTwo(){
 
+        int[] arrayOne = {1, 2, 4, 5};
+        int[] arrayTwo = { 6, 7, 8, 9, 0};
+        int[] expected = {0, 1, 2, 4, 5, 6, 7, 8, 9};
+        int[] actual = FireDrillFour.mergeArray(arrayOne, arrayTwo);
+        assertArrayEquals(expected, actual);
+    }
 
+    @Test
+    public void testThatMethodReturnsANewArrayOfThePrefixSum(){
+        
+        int[] array = {1,2,3,4};
+        int[] expected = {1,3,6,10};
+        int[] actual = FireDrillFour.getPrefixSum(array);
+        assertArrayEquals(expected, actual);
+    }
 
-
+    
 
 //End of class   
 }

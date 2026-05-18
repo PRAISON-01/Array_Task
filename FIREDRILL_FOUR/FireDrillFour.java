@@ -1,7 +1,14 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 public class FireDrillFour{
-       
+
+     public static void main(String[] args){
+        
+        int[] arrayOne = {1,2,3,4};
+        
+        System.out.println(Arrays.toString(getPrefixSum(arrayOne)));
+        
+    }
 
 
     public static int[] collectArray(int number){
@@ -20,7 +27,7 @@ public class FireDrillFour{
     public static int[] reverseArray(int[] array){
 
         int[] reversedArray = new int[array.length];
-        int count = 0;
+        int count = 0; 
         for(int index = array.length - 1; index >= 0; index--){
             reversedArray[count] = array[index];
             count++;
@@ -123,14 +130,96 @@ public class FireDrillFour{
         return -1;
     
     }
-    
-    public static void main(String[] args){
+
+    public static int binarySearch(int[] array, int key){
         
-        int[] array = {5, 2, 1, 6, 7, 9, 9};
-        int key = 1;
-        System.out.println(linearSearch(array, key));
+        int left = 0;
+        int right = array.length - 1;
+
+        while(left <= right){
+            int middle = (left + right)/ 2;
+            
+            if(key == array[middle]){
+                return middle;
+            }
+            else if(key < array[middle]){
+                right = middle - 1;
+//                return right;
+            }
+            else{
+                left = middle + 1;
+//                return left;
+            }
+        }
+        return -1;
+    }
+    
+
+    public static int[] getDuplicate(int[] array){
+        ArrayList<Integer> duplicateArray = new ArrayList<>();
+        ArrayList<Integer> seenNumber = new ArrayList<Integer>();
+
+        for(int number : array){
+            if(seenNumber.contains(number)){
+                if(!duplicateArray.contains(number)) duplicateArray.add(number);
+            }
+            else{
+                seenNumber.add(number);
+            }
+        }
+
+        int[] newArray = new int[duplicateArray.size()];
+        
+        
+        int count = 0; 
+        for(int number : duplicateArray){
+            newArray[count++] = number;
+        }
+        return newArray;
     }
 
+    
+    public static int[] mergeArray(int[] arrayOne, int[] arrayTwo){
+        ArrayList<Integer> array = new ArrayList<Integer>();
+
+        for(int number : arrayOne){
+            array.add(number);
+        }
+        
+        for(int number : arrayTwo){
+            array.add(number);
+        }
+
+        int[] newArray = new int[array.size()];
+        
+        int count = 0;
+        for(int number : array){
+            newArray[count++] = number;
+        }
+    
+        for(int i = 0; i < newArray.length; i++){
+            for(int index = 0; index < newArray.length - 1 - i; index++){
+                if(newArray[index] > newArray[index + 1]){
+                    int temp = newArray[index];
+                    newArray[index] = newArray[index + 1];
+                    newArray[index + 1] = temp;
+                }
+            }
+        }
+        return newArray;
+        
+    }
+
+    public static int[] getPrefixSum(int[] array){
+        int total = 0;
+        int[] newArray = new int[array.length];
+        int count = 0;
+        for(int number : array){
+            total += number;
+            newArray[count++] = total;
+        }
+        return newArray;
+    }
     
 
 }
